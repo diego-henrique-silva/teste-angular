@@ -1,0 +1,60 @@
+
+
+entity ProprietarioCaminhao {
+	cpf String required,
+    cnpj String required,
+    nome String required
+}
+
+entity ContatoProprietario {
+	tipoContato TipoContato required,
+    String contato required
+}
+
+entity Motorista {
+	nome String required,
+    cpf String required max(11),
+    placaCavalo String required,
+    placaCarreta String required,
+    placaCarreta2 String required,
+    placaUf Estado required,
+    antt String required
+}
+
+entity ContatoMotorista {
+	tipoContato TipoContato required,
+    String contato required
+}
+
+enum Estado {
+	RO,	AC,	AM,	RR,	PA,	AP,	TO,	MA,	
+    PI,	CE,	RN,	PB,	PE,	AL,	SE,	BA, 
+    MG,	ES,	RJ,	SP,	PR,	SC,	RS,	MS,	
+    MT,	GO,	DF
+}
+
+entity ReferenciaMotorista {
+	nome String required,
+    tipoCarga TipoCarga required,
+}
+
+entity ContatoReferenciaMotorista {
+	tipoContato TipoContato required,
+    String contato required
+}
+
+entity TipoCarga {
+	nome String required
+}
+
+entity Contato {
+	tipo TipoContato,
+}
+
+enum TipoContato {
+	TELEFONE, EMAIL
+}
+
+// Set service options to all except few
+service all with serviceImpl
+
